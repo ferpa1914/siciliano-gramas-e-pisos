@@ -686,6 +686,76 @@ header.scrolled {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
+/* Mobile Filter Styles (Hidden on Desktop) */
+.mobile-filter-container {
+  display: none;
+}
+.mobile-filter-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-deep);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.mobile-filter-trigger:hover,
+.mobile-filter-trigger[aria-expanded="true"] {
+  border-color: var(--border-highlight);
+  color: var(--accent);
+}
+.mobile-filter-trigger svg {
+  transition: transform 0.3s ease;
+}
+.mobile-filter-trigger[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.mobile-filter-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: var(--bg-deep);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  width: 260px;
+  padding: 8px;
+  box-shadow: var(--shadow-premium);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100;
+}
+.mobile-filter-dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.mobile-filter-item {
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.mobile-filter-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+.mobile-filter-item.active {
+  background-color: rgba(104, 165, 62, 0.1);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+
 /* Editorial Products Grid */
 .products-grid {
   display: grid;
@@ -1429,6 +1499,19 @@ footer {
     gap: 30px;
   }
   
+  .product-tabs {
+    display: none !important;
+  }
+  
+  .mobile-filter-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
+  }
+  
   .hero-interactive-wrap {
     height: 120px;
     margin-top: 30px;
@@ -1480,6 +1563,10 @@ footer {
 @media (max-width: 768px) {
   .section-padding {
     padding: 100px 0;
+  }
+  
+  .hero-interactive-wrap {
+    display: none !important;
   }
   
   .nav-links {

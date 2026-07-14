@@ -177,7 +177,27 @@
         <p>Explore nossa linha completa de produtos divididos por categorias. Materiais com especificações profissionais, alta durabilidade e instalação sob medida.</p>
       </div>
 
-      <!-- Category Filter Tabs -->
+      <!-- Mobile Filter Dropdown (Top Right on Mobile viewports) -->
+      <div class="mobile-filter-container">
+        <button class="mobile-filter-trigger" id="mobile-filter-btn" aria-haspopup="listbox" aria-expanded="false">
+          <span>Filtrar: Todos</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="mobile-filter-dropdown" id="mobile-filter-menu" role="listbox">
+          <div class="mobile-filter-item active" data-value="todas">Todos</div>
+          <div class="mobile-filter-item" data-value="gramas">Gramas Sintéticas</div>
+          <div class="mobile-filter-item" data-value="pisos-borracha">Pisos Emborrachados</div>
+          <div class="mobile-filter-item" data-value="pisos-modulares">Pisos Modulares</div>
+          <div class="mobile-filter-item" data-value="autonivelantes">Pisos Líquidos Autonivelantes</div>
+          <div class="mobile-filter-item" data-value="playgrounds">Playgrounds e Brinquedos</div>
+          <div class="mobile-filter-item" data-value="tapetes">Tapetes Personalizados</div>
+          <div class="mobile-filter-item" data-value="protetores">Protetor de Elevador</div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs (Desktop Only) -->
       <div class="product-tabs">
         <button class="tab-btn active" data-tab="todas">Todos</button>
         <button class="tab-btn" data-tab="gramas">Gramas Sintéticas</button>

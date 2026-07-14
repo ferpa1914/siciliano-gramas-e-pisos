@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFAQAccordion();
   initScrollSpy();
   initProductFilters();
+  initMobileFilterDropdown();
   initProductSliders();
 });
 
@@ -646,3 +647,51 @@ function initProductSliders() {
     });
   });
 }
+
+// Menu Dropdown de Filtro no Mobile (Topo Direito)
+function initMobileFilterDropdown() {
+  const triggerBtn = document.getElementById("mobile-filter-btn");
+  const filterMenu = document.getElementById("mobile-filter-menu");
+  const dropdownItems = document.querySelectorAll(".mobile-filter-item");
+  const desktopTabs = document.querySelectorAll(".product-tabs .tab-btn");
+
+  if (!triggerBtn || !filterMenu) return;
+
+  // Abre/fecha o menu dropdown
+  triggerBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = filterMenu.classList.toggle("open");
+    triggerBtn.setAttribute("aria-expanded", isOpen);
+  });
+
+  // Fecha o menu quando clica fora dele
+  document.addEventListener("click", () => {
+    filterMenu.classList.remove("open");
+    triggerBtn.setAttribute("aria-expanded", "false");
+  });
+
+  // Vincula a seleção do menu móvel ao clique das abas de desktop ocultas
+  dropdownItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const val = item.getAttribute("data-value");
+      
+      dropdownItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      // Atualiza o texto do botão com o filtro selecionado
+      const selectedText = item.textContent;
+      triggerBtn.querySelector("span").textContent = `Filtrar: ${selectedText}`;
+
+      // Simula o clique na aba oculta correspondente
+      desktopTabs.forEach(tab => {
+        if (tab.getAttribute("data-tab") === val) {
+          tab.click();
+        }
+      });
+
+      filterMenu.classList.remove("open");
+      triggerBtn.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
