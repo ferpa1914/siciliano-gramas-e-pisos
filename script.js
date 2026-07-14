@@ -577,23 +577,27 @@ function initProductFilters() {
         const categories = card.getAttribute("data-categories").split(" ");
         if (tabValue === "todas" || categories.includes(tabValue)) {
           card.style.display = "flex";
-          setTimeout(() => {
+          // Use requestAnimationFrame to batch opacity/scale reflows efficiently
+          requestAnimationFrame(() => {
             card.style.opacity = "1";
             card.style.transform = "scale(1)";
-          }, 30);
+          });
         } else {
           card.style.opacity = "0";
           card.style.transform = "scale(0.95)";
+          // Set display: none after fade-out transition
           setTimeout(() => {
-            card.style.display = "none";
-          }, 250);
+            if (card.style.opacity === "0") {
+              card.style.display = "none";
+            }
+          }, 200);
         }
       });
       
-      // Atualiza o ScrollTrigger após filtrar para recalcular as alturas
+      // Refresh ScrollTrigger once after a single deferred timeout
       setTimeout(() => {
         ScrollTrigger.refresh();
-      }, 300);
+      }, 250);
     });
   });
 }
