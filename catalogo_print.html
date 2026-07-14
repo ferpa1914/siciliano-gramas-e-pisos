@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo Oficial — Siciliano Revestimentos</title>
+  <style>
+    /* Google Fonts for print */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap');
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1e293b;
+      background-color: #f1f5f9;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Page container */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      background-color: #ffffff;
+      padding: 16mm 16mm 18mm 16mm;
+      position: relative;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      margin: 20px auto; /* Visible spacing on screen, ignored in print */
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+      }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+
+    /* Page Header */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #3E5F30;
+      padding-bottom: 3mm;
+      margin-bottom: 5mm;
+    }
+
+    .page-header img {
+      height: 11mm;
+      width: auto;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .page-header .brand-info {
+      text-align: right;
+    }
+
+    .page-header .brand-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 10pt;
+      font-weight: 700;
+      color: #3E5F30;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .page-header .brand-subtitle {
+      font-size: 7.5pt;
+      color: #64748b;
+    }
+
+    /* Page Footer */
+    .page-footer {
+      position: absolute;
+      bottom: 10mm;
+      left: 16mm;
+      right: 16mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 3mm;
+      font-size: 8pt;
+      color: #64748b;
+    }
+
+    .page-footer .page-number::after {
+      content: counter(page);
+    }
+
+    /* COVER PAGE */
+    .cover-page {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30mm 20mm;
+      background: linear-gradient(135deg, #131E0F 0%, #203518 100%);
+      color: #ffffff;
+    }
+
+    .cover-logo {
+      height: 40mm;
+      margin-bottom: 15mm;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cover-badge {
+      background-color: #68A53E;
+      color: #ffffff;
+      padding: 6px 16px;
+      font-size: 10pt;
+      font-weight: 700;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8mm;
+      display: inline-block;
+    }
+
+    .cover-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26pt;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 6mm;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .cover-divider {
+      width: 40mm;
+      height: 4px;
+      background-color: #68A53E;
+      margin: 6mm auto 10mm auto;
+      border-radius: 2px;
+    }
+
+    .cover-subtitle {
+      font-size: 14pt;
+      font-weight: 400;
+      color: #cbd5e1;
+      max-width: 140mm;
+      margin-bottom: 20mm;
+      line-height: 1.4;
+    }
+
+    .cover-footer {
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 8mm;
+      width: 100%;
+    }
+
+    .cover-footer p {
+      font-size: 9.5pt;
+      color: #94a3b8;
+      margin-bottom: 3mm;
+    }
+
+    .cover-footer strong {
+      color: #ffffff;
+      font-size: 11pt;
+      display: block;
+      letter-spacing: 0.5px;
+    }
+
+    /* CATEGORY DIVISION HEADER */
+    .category-section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13pt;
+      font-weight: 700;
+      color: #ffffff;
+      background-color: #3E5F30;
+      padding: 5px 14px;
+      border-radius: 5px;
+      margin-bottom: 5mm;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    /* 2-ROW LAYOUT (For 2-product pages - very spacious & clean) */
+    .product-list-2rows {
+      display: flex;
+      flex-direction: column;
+      gap: 6mm;
+      flex-grow: 1;
+      margin-bottom: 8mm;
+    }
+
+    .row-product-card-large {
+      border: 1.5px solid #3E5F30; /* Thin green border */
+      border-radius: 8px;
+      padding: 4.5mm;
+      display: flex;
+      gap: 6.5mm;
+      background-color: #ffffff;
+      height: 103mm;
+      align-items: center;
+    }
+
+    .row-product-image-large {
+      width: 75mm;
+      height: 75mm;
+      object-fit: cover; /* Uniform same-size format */
+      background-color: #f8fafc;
+      border-radius: 6px;
+      flex-shrink: 0;
+      border: 1px solid #f1f5f9;
+    }
+
+    .row-product-details-large {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      height: 75mm;
+      justify-content: flex-start;
+    }
+
+    .row-product-details-large h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 3.5mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 1.5px solid #3E5F30; /* Thin bottom green border */
+      display: inline-block;
+      align-self: flex-start;
+      text-align: left;
+    }
+
+    .row-product-details-large p {
+      font-size: 9.5pt;
+      line-height: 1.4;
+      color: #475569;
+      margin-bottom: 3.5mm;
+      text-align: left;
+    }
+
+    .row-specs-table-large {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9pt;
+      margin-top: auto;
+    }
+
+    .row-specs-table-large tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .row-specs-table-large tr:last-child {
+      border-bottom: none;
+    }
+
+    .row-specs-table-large th {
+      text-align: left;
+      font-weight: 700;
+      color: #3E5F30;
+      width: 25mm;
+      padding: 4.5px 0;
+      vertical-align: top;
+    }
+
+    .row-specs-table-large td {
+      text-align: left;
+      color: #334155;
+      padding: 4.5px 0 4.5px 2mm;
+      vertical-align: top;
+    }
+
+    /* CLOSING PAGE */
+    .closing-page {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40mm 20mm;
+      background: linear-gradient(135deg, #131E0F 0%, #203518 100%);
+      color: #ffffff;
+    }
+
+    .closing-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10mm;
+      border-radius: 16px;
+      max-width: 150mm;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      width: 100%;
+      text-align: center;
+    }
+
+    .closing-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20pt;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4mm;
+      text-align: center;
+    }
+
+    .closing-text {
+      font-size: 10.5pt;
+      color: #cbd5e1;
+      line-height: 1.5;
+      margin-bottom: 8mm;
+      text-align: center;
+    }
+
+    .closing-cta-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3.5mm;
+      margin-bottom: 6mm;
+    }
+
+    .closing-cta {
+      display: inline-block;
+      background-color: #68A53E;
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 11pt;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(104, 165, 62, 0.3);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+      width: 80%;
+    }
+
+    .closing-cta.alt {
+      background-color: #3E5F30;
+      box-shadow: 0 4px 12px rgba(62, 95, 48, 0.3);
+    }
+
+    .closing-phone {
+      font-size: 13pt;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+      margin-top: 2mm;
+      text-align: center;
+    }
+
+    .closing-phone strong {
+      color: #ffffff;
+    }
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating screen-only button to trigger print/save as PDF -->
+  <div class="no-print" style="position: fixed; top: 20px; right: 20px; z-index: 99999; background-color: #68A53E; color: white; padding: 14px 24px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.35); font-family: 'Outfit', sans-serif; font-size: 11pt; font-weight: 700; cursor: pointer; border: 2px solid rgba(255,255,255,0.2); transition: all 0.2s ease;" onclick="window.print()" onmouseover="this.style.backgroundColor='#558732'" onmouseout="this.style.backgroundColor='#68A53E'">
+    🖨️ Clique Aqui para Salvar como PDF
+  </div>
+
+  <!-- PAGE 1: COVER -->
+  <div class="page cover-page">
+    <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo" class="cover-logo">
+    <div class="cover-badge">Catálogo Oficial de Produtos</div>
+    <h1 class="cover-title">Gramas Sintéticas &<br>Pisos Emborrachados</h1>
+    <div class="cover-divider"></div>
+    <p class="cover-subtitle">As melhores soluções em revestimentos sintéticos e amortecimento com qualidade premium e atendimento diferenciado em todo o Estado.</p>
+    
+    <div class="cover-footer">
+      <p>Solicite seu Orçamento sem Compromisso:</p>
+      <strong>WhatsApp: (67) 99334-0565</strong>
+    </div>
+  </div>
+
+  <!-- PAGE 2: GRAMAS SINTÉTICAS (Part 1/2) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 2</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Gramas Sintéticas</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 1 -->
+      <div class="row-product-card-large">
+        <img src="images/grama sintetica 12mm4.webp" alt="Grama Sintética Decorativa" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Grama Sintética Decorativa</h3>
+          <p>Ideal para acabamentos estéticos, áreas infantis e espaços pet. Produzida para resistir a intempéries e manter a beleza natural.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Espessuras de 12mm e 20mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>100% Polietileno virgem com proteção anti-UV</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Playgrounds, varandas, jardins internos e áreas pet</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Base de látex duplo que facilita drenagem e não esfarela</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="row-product-card-large">
+        <img src="images/grama sintetica soft 20mm 30mm 40mm.png" alt="Grama Sintética Soft" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Grama Sintética Soft</h3>
+          <p>Toque extremamente macio e confortável. Desenvolvida com tecnologia que reduz a retenção de calor e simula a grama natural.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Espessuras de 20mm, 30mm e 40mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Monofilamento com tecnologia Soft Touch</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Jardins residenciais premium e bordas de piscina</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Alta densidade de pontos por m² e proteção térmica</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 3: GRAMAS SINTÉTICAS (Part 2/2) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 3</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Gramas Sintéticas</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 3 -->
+      <div class="row-product-card-large">
+        <img src="images/grama_monofilamento.png" alt="Grama Esportiva Monofilamento" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Grama Esportiva Monofilamento</h3>
+          <p>Excelente resiliência e maciez. Fios que retornam rapidamente à posição vertical após o impacto, oferecendo excelente jogabilidade.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Espessuras de 40mm e 50mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Fio monofilamento de alta durabilidade e proteção UV</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Quadras de futebol society comerciais e profissionais</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Alta durabilidade dos fios mantendo a maciez e estabilidade</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="row-product-card-large">
+        <img src="images/grama_fibrilada.png" alt="Grama Esportiva Fibrilada" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Grama Esportiva Fibrilada</h3>
+          <p>Fibras interligadas em formato de colmeia. Ideal para quadras públicas ou comerciais com alto fluxo de jogos e alta fricção.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Espessuras de 40mm e 50mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Polietileno fibrilado de alta resistência à tração</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Campos comerciais de futebol society de alto uso</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Estrutura robusta que retém melhor a borracha de amortecimento</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 4: PISOS EMBORRACHADOS (Part 1/2) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 4</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Pisos Emborrachados</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 5 -->
+      <div class="row-product-card-large">
+        <img src="images/placa_borracha.png" alt="Placa Emborrachada" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Placa Emborrachada</h3>
+          <p>Placas amortecedoras de alto impacto, ideais para áreas fitness de musculação, Crossfit e playgrounds residenciais ou públicos.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Placas de 50x50cm ou 1m x 1m | Espessuras de 10mm, 20mm e 30mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Borracha reciclada vulcanizada de alta densidade</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Playgrounds infantis, áreas de peso livre e musculação</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Excelente atenuação de ruídos e isolamento mecânico sob quedas</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="row-product-card-large">
+        <img src="images/ruberkap.webp" alt="Ruber-Kap" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Ruber-Kap</h3>
+          <p>Revestimento de alto padrão para amortecimento de quedas de pesos pesados. Excelente absorção de impacto físico e facilidade de limpeza diária.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Placas de 50x50cm ou 1m x 1m | Espessuras de 15mm, 20mm e 25mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Composto de borracha reciclada SBR de alta densidade</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Áreas de peso livre em academias e boxes de alta intensidade</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Previne lesões articulares e fissuras no contrapiso sob quedas de barras</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 5: PISOS EMBORRACHADOS (Part 2/2) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 5</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Pisos Emborrachados</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 7 -->
+      <div class="row-product-card-large">
+        <img src="images/h-kap1.webp" alt="H-Kap" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>H-Kap</h3>
+          <p>Soluções em passadeiras de PVC flexível. Design estriado que retém detritos e escoa água, mantendo o ambiente limpo e seguro.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Rolos com 1.2m de largura e comprimento flexível</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>PVC virgem flexível de alta resistência química</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Decks secos, corredores de condomínios e oficinas leves</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Fácil corte para ajuste no local, lavável e higiênico</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Left space for aesthetics as this category has 3 items in total -->
+      <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; border: 1px dashed #e2e8f0; border-radius: 8px; height: 103mm; background-color: #fafbfd;">
+        <p style="font-size: 10pt; color: #94a3b8; font-style: italic;">Siciliano Revestimentos — Qualidade e Compromisso Comercial</p>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 6: PISOS MODULARES (Part 1/2) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 6</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Pisos Modulares</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 8 -->
+      <div class="row-product-card-large">
+        <img src="images/acqua-kap1.webp" alt="Acqua-Kap" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Acqua-Kap</h3>
+          <p>Piso modular vazado desenvolvido especificamente para locais com presença constante de água. Segurança total contra quedas.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Módulos encaixáveis de 30x30cm | Espessura de 13mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>PVC flexível antiderrapante</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Bordas de piscina, saunas, vestiários e banheiros</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Tratamento antibacteriano e fungicida (sem odores ou mofo)</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="row-product-card-large">
+        <img src="images/piso modular carro.jpg" alt="Piso Modular Garagens" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Piso Modular - Garagens</h3>
+          <p>Perfeito para garagens, oficinas premium e estandes de carros. Suporta tráfego e estacionamento de veículos pesados, mantendo um design luxuoso.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Polipropileno (PP) virgem de alta resistência mecânica e UV</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Oficinas premium, garagens de condomínios e estandes de eventos</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Drenagem total de óleo e água, suporta peso de veículos sem quebrar</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 7: PISOS MODULARES (Part 2/2) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 7</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Pisos Modulares</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 10 -->
+      <div class="row-product-card-large">
+        <img src="images/piso modular playground.jpg" alt="Piso Modular Playground" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Piso Modular - Playground</h3>
+          <p>Excelente para áreas infantis e quintais. Reduz o impacto em quedas e drena rapidamente a água, permitindo o uso logo após a chuva.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Polipropileno (PP) de alto amortecimento de queda</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Parquinhos de condomínio, escolas e quintais de lazer</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Superfície não tóxica, sem farpas, resistente ao calor sob sol intenso</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="row-product-card-large">
+        <img src="images/piso modular quadra.jpg" alt="Piso Modular Quadras" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Piso Modular - Quadras</h3>
+          <p>Desenvolvido para basquete, futsal, vôlei e outras modalidades. Proporciona o quique perfeito da bola e reduz impacto nas articulações esportivas.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>PP virgem com estabilizantes térmicos e proteção anti-UV</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Quadras poliesportivas comerciais, clubes e condomínios</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Excelente grip antiderrapante, linhas de marcação fixadas no piso</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 8: PISOS LÍQUIDOS AUTONIVELANTES -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 8</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Pisos Líquidos Autonivelantes</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 12 -->
+      <div class="row-product-card-large">
+        <img src="images/balde_piso_liquido_edit.png" alt="Pisos Autonivelantes Residenciais" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Pisos Autonivelantes Residenciais</h3>
+          <p>Porcelanato líquido epóxi/poliuretano de alto brilho e sofisticação para salas, quartos e banheiros. Realizamos toda a preparação do contrapiso e aplicação completa com equipe especializada.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas/Espessura:</th>
+              <td>Sob medida | Espessura final de 2mm a 4mm</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Resina epóxi autonivelante premium e cura rápida</td>
+            </tr>
+            <tr>
+              <th>Cores & Modelos:</th>
+              <td>Várias cores sólidas, metalizadas, efeitos 3D e padrões simulando granito/mármore</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Impermeabilidade total, brilho espelhado, resistência a riscos e aplicação sem emendas</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 13 -->
+      <div class="row-product-card-large">
+        <img src="images/balde_piso_liquido_edit.png" alt="Pisos Autonivelantes Comerciais & Industriais" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Pisos Autonivelantes Comerciais & Industriais</h3>
+          <p>Revestimento líquido de alto desempenho para tráfego pesado. Realizamos toda a preparação mecânica da base, remoção de contaminações e a aplicação técnica completa.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Espessuras:</th>
+              <td>Customizado de 3mm a 6mm dependendo da carga operacional</td>
+            </tr>
+            <tr>
+              <th>Variações de Linha:</th>
+              <td>Piso líquido emborrachado (anti-impacto), piso antiderrapante e piso hidrofóbico</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Empresas, oficinas, indústrias, garagens de condomínio, galpões e lavagens</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Suporta empilhadeiras e veículos pesados, alta resistência a solventes e óleos</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 9: PLAYGROUNDS E BRINQUEDOS -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 9</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Playgrounds e Brinquedos</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 14 -->
+      <div class="row-product-card-large">
+        <img src="images/playgrond1.jpg" alt="Playgrounds Completos" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Playgrounds Completos</h3>
+          <p>Projetos e instalação de playgrounds infantis sob medida para condomínios, escolas, chácaras e áreas de lazer. Estruturas robustas de altíssima resistência a intempéries (sol/chuva) e uso constante, projetadas para garantir a máxima diversão e segurança das crianças.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Modelos/Estruturas:</th>
+              <td>Estruturas em aço carbono galvanizado de alta durabilidade com pintura eletrostática</td>
+            </tr>
+            <tr>
+              <th>Componentes:</th>
+              <td>Escorregadores curvos/retos, balanço duplo, pontes suspensas e escaladas</td>
+            </tr>
+            <tr>
+              <th>Segurança:</th>
+              <td>Cantos arredondados, parafusos embutidos e total conformidade com as normas ABNT NBR 16071</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Peças plásticas atóxicas com proteção anti-UV, alta resistência mecânica e equipe de montagem própria</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Gallery Row to fill the page beautifully -->
+      <div class="row-product-card-large" style="border: none; box-shadow: none; background: transparent; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items: stretch;">
+        <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--card-bg); height: 50mm;">
+          <img src="images/playgournd2.jpg" alt="Modelo Playground Modular" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--card-bg); height: 50mm;">
+          <img src="images/playground3.jpg" alt="Modelo Playground Linha 2" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 10: TAPETES PERSONALIZADOS -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 10</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Tapetes Personalizados</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 12 -->
+      <div class="row-product-card-large">
+        <img src="images/TAPETE VINIL.jpg" alt="Tapete Vinil Personalizado" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Tapete Vinil Personalizado (Limpa)</h3>
+          <p>Capacho produzido com PVC 100% virgem para reter sujeiras sólidas na entrada. Personalizado com a sua marca computadorizada por vulcanização térmica.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Sob medida de acordo com o espaço da sua porta</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>PVC 100% Matéria Virgem (vida útil muito maior que reciclados)</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Entradas comerciais, condomínios, recepções e elevadores</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Fibras de vinil de alta resiliência (não racha, não desbota)</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 13 -->
+      <div class="row-product-card-large">
+        <img src="images/cleankap.jpg" alt="Tapete Cleankap Personalizado" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Tapete Cleankap Personalizado</h3>
+          <p>O tapete completo para controle de poeiras finas e umidade. Ideal para manter os pisos internos secos, limpos e seguros em dias chuvosos.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Customizado com acabamentos de borda em borracha flexível</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Fibras têxteis de alta absorção acopladas em borracha nitrílica</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Entradas de shoppings, recepções de hotéis, escritórios comerciais</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Base antiderrapante resistente e lavável em máquina industrial</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 11: PROTETORES DE ELEVADOR -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 11</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Protetores de Elevador</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 14 -->
+      <div class="row-product-card-large">
+        <img src="images/protetor de elevador.jpeg" alt="Protetor de Elevador Standard" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Protetor de Elevador Standard (Mudanças)</h3>
+          <p>Desenvolvido para condomínios residenciais. Protege a cabine do elevador contra arranhões, riscos e pequenos impactos durante mudanças e transporte cotidiano.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Fabricação sob medida de acordo com a cabine</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Nylon 600 reforçado com enchimento de espuma D28 (15mm)</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Mudanças residenciais, transporte de malas e compras</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Material impermeável, fácil higienização e acabamento premium</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Product 15 -->
+      <div class="row-product-card-large">
+        <img src="images/protetor de elevador2.jpeg" alt="Protetor de Elevador Reforçado" class="row-product-image-large">
+        <div class="row-product-details-large">
+          <h3>Protetor de Elevador Reforçado (Obras e Cargas)</h3>
+          <p>Ideal para elevadores de serviço ou obras. Proteção robusta projetada para absorver grandes impactos de materiais de construção e ferramentas pesadas.</p>
+          <table class="row-specs-table-large">
+            <tr>
+              <th>Medidas:</th>
+              <td>Fabricação sob medida de acordo com a cabine</td>
+            </tr>
+            <tr>
+              <th>Composição:</th>
+              <td>Lona vinílica impermeável com espuma anti-impacto D33 (20mm)</td>
+            </tr>
+            <tr>
+              <th>Indicação:</th>
+              <td>Obras, reformas e transporte de cargas industriais ou pesadas</td>
+            </tr>
+            <tr>
+              <th>Diferencial:</th>
+              <td>Alta resistência a rasgos, costura dupla reforçada e máxima absorção</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 12: CLOSING PAGE -->
+  <div class="page closing-page">
+    <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo" class="cover-logo" style="margin-bottom: 8mm;">
+    
+    <div class="closing-card">
+      <h2 class="closing-title">Fale Conosco</h2>
+      <p class="closing-text">Temos a solução perfeita para o seu projeto comercial, esportivo ou residencial. Fale com um de nossos especialistas e solicite um orçamento sob medida.</p>
+      
+      <div class="closing-cta-wrapper">
+        <a href="https://wa.me/5567993340565" class="closing-cta">Falar no WhatsApp</a>
+      </div>
+      
+      <div class="closing-phone">Contato Comercial: <strong>(67) 99334-0565</strong></div>
+      <p style="font-size: 8.5pt; color: #94a3b8; margin-top: 4mm;">Siciliano Revestimentos — Campo Grande / MS</p>
+    </div>
+
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+</body>
+</html>
