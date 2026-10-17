@@ -59,6 +59,16 @@ function initLenisScroll() {
 
   // Sincroniza o ScrollTrigger do GSAP com a rolagem suave do Lenis
   lenisInstance.on('scroll', ScrollTrigger.update);
+
+  // Rola suavemente até a âncora se houver hash na URL ao carregar a página
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      setTimeout(() => {
+        lenisInstance.scrollTo(target, { immediate: false, duration: 1.2 });
+      }, 400);
+    }
+  }
 }
 
 /* ==========================================================================
@@ -238,70 +248,111 @@ function initGSAPReveal() {
   }, "-=0.6");
 
   // Animação do Stats Bar (Stagger)
-  gsap.from(".stats-bar .stat-item", {
-    scrollTrigger: {
-      trigger: ".stats-bar",
-      start: "top 85%"
-    },
-    opacity: 0,
-    y: 30,
-    stagger: 0.15,
-    duration: 0.8,
-    ease: "power3.out"
-  });
+  const statsBar = document.querySelector(".stats-bar");
+  if (statsBar) {
+    gsap.from(".stats-bar .stat-item", {
+      scrollTrigger: {
+        trigger: ".stats-bar",
+        start: "top 85%"
+      },
+      opacity: 0,
+      y: 30,
+      stagger: 0.15,
+      duration: 0.8,
+      ease: "power3.out"
+    });
+  }
 
   // Animação das seções de produtos (Catálogo Editorial)
-  gsap.from(".products-grid .product-card", {
-    scrollTrigger: {
-      trigger: ".products-grid",
-      start: "top 85%"
-    },
-    opacity: 0,
-    y: 40,
-    stagger: 0.2,
-    duration: 1,
-    ease: "power4.out"
-  });
+  const productsGrid = document.querySelector(".products-grid");
+  if (productsGrid) {
+    // Se a grid já estiver visível/próxima ao topo (como em produtos.html), animamos direto sem ScrollTrigger
+    if (productsGrid.getBoundingClientRect().top < window.innerHeight) {
+      gsap.from(".products-grid .product-card", {
+        opacity: 0,
+        y: 40,
+        stagger: 0.08,
+        duration: 0.6,
+        ease: "power4.out",
+        clearProps: "all"
+      });
+    } else {
+      gsap.from(".products-grid .product-card", {
+        scrollTrigger: {
+          trigger: ".products-grid",
+          start: "top 85%"
+        },
+        opacity: 0,
+        y: 40,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power4.out",
+        clearProps: "all"
+      });
+    }
+  }
 
   // Animação do Diferenciais (Cards de Benefício)
-  gsap.from(".why-us-grid .why-card", {
-    scrollTrigger: {
-      trigger: ".why-us-grid",
-      start: "top 90%",
-      toggleActions: "play none none none",
-      once: true
-    },
-    opacity: 0,
-    y: 35,
-    stagger: 0.15,
-    duration: 0.8,
-    ease: "power3.out",
-    clearProps: "opacity,transform"
-  });
+  const whyUsGrid = document.querySelector(".why-us-grid");
+  if (whyUsGrid) {
+    gsap.from(".why-us-grid .why-card", {
+      scrollTrigger: {
+        trigger: ".why-us-grid",
+        start: "top 90%",
+        toggleActions: "play none none none",
+        once: true
+      },
+      opacity: 0,
+      y: 35,
+      stagger: 0.15,
+      duration: 0.8,
+      ease: "power3.out",
+      clearProps: "opacity,transform"
+    });
+  }
 
   // Animação de Formulário de Contato e Info
-  gsap.from(".contact-info > *", {
-    scrollTrigger: {
-      trigger: ".contact-section",
-      start: "top 80%"
-    },
-    opacity: 0,
-    x: -30,
-    stagger: 0.15,
-    duration: 0.8,
-    ease: "power3.out"
-  });
-
-  gsap.from(".form-card", {
-    scrollTrigger: {
-      trigger: ".contact-section",
-      start: "top 80%"
-    },
-    opacity: 0,
-    x: 30,
-    duration: 1,
-    ease: "power3.out"
-  });
+  const contactSection = document.querySelector(".contact-section");
+  if (contactSection) {
+    // Se já estiver visível/próxima ao topo (como em orcamento.html), animamos direto sem ScrollTrigger
+    if (contactSection.getBoundingClientRect().top < window.innerHeight) {
+      gsap.from(".contact-info > *", {
+        opacity: 0,
+        x: -30,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+      gsap.from(".form-card", {
+        opacity: 0,
+        x: 30,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+    } else {
+      gsap.from(".contact-info > *", {
+        scrollTrigger: {
+          trigger: ".contact-section",
+          start: "top 80%"
+        },
+        opacity: 0,
+        x: -30,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+      gsap.from(".form-card", {
+        scrollTrigger: {
+          trigger: ".contact-section",
+          start: "top 80%"
+        },
+        opacity: 0,
+        x: 30,
+        duration: 1,
+        ease: "power3.out"
+      });
+    }
+  }
 }
 
 /* ==========================================================================
@@ -479,21 +530,57 @@ function initFormSubmit() {
     
     const submitBtn = form.querySelector("button[type='submit']");
     const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = "Redirecionando... 🚀";
+    submitBtn.innerHTML = "Gravando orçamento... ⏳";
     submitBtn.style.backgroundColor = "#68A53E";
     submitBtn.style.color = "#FFFFFF";
     submitBtn.disabled = true;
 
-    setTimeout(() => {
-      window.open(whatsappUrl, "_blank");
-      
-      submitBtn.innerHTML = originalText;
-      submitBtn.style.backgroundColor = "";
-      submitBtn.style.color = "";
-      submitBtn.disabled = false;
-      
-      form.reset();
-    }, 1000);
+    // Dispara o salvamento no banco de dados Supabase via Backend
+    const leadPayload = {
+      nome: name,
+      telefone: phone,
+      produto: product,
+      area: area,
+      mensagem: customMessage
+    };
+
+    const proceedToWhatsApp = () => {
+      submitBtn.innerHTML = "Redirecionando WhatsApp... 🚀";
+      setTimeout(() => {
+        // Se o navegador bloquear a nova aba (pop-up), abre na mesma aba
+        const novaAba = window.open(whatsappUrl, "_blank");
+        if (!novaAba) window.location.href = whatsappUrl;
+        submitBtn.innerHTML = originalText;
+        submitBtn.style.backgroundColor = "";
+        submitBtn.style.color = "";
+        submitBtn.disabled = false;
+        form.reset();
+      }, 500);
+    };
+
+    // Limite de 8 segundos para salvar; depois disso segue para o WhatsApp
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
+
+    fetch("/api/orcamento", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(leadPayload),
+      signal: controller.signal
+    })
+    .then(res => res.json().catch(() => ({})))
+    .then(data => {
+      if (!data.success) console.warn("[ORÇAMENTO] Não registrado no banco:", data.error);
+      proceedToWhatsApp();
+    })
+    .catch(err => {
+      // Fallback seguro: se o servidor estiver offline, ainda abre o WhatsApp sem travar o cliente
+      console.warn("[ORÇAMENTO] Fallback ativado (WhatsApp direto):", err);
+      proceedToWhatsApp();
+    })
+    .finally(() => clearTimeout(timeoutId));
   });
 }
 

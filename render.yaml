@@ -1,0 +1,18 @@
+# Configuração do Render (Blueprint). Cria o serviço no plano GRATUITO.
+services:
+  - type: web
+    name: siciliano-gramas-e-pisos
+    runtime: node
+    plan: free
+    branch: main
+    autoDeploy: true
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        sync: false   # o Render vai pedir o valor na criação
+      - key: SUPABASE_ANON_KEY
+        sync: false

@@ -39,32 +39,22 @@
   <!-- Header Navigation -->
   <header id="main-header">
     <div class="container navbar">
-      <a href="#hero" class="logo" id="nav-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="logo-svg">
-          <circle cx="50" cy="50" r="48" fill="#68A53E" />
-          <path d="M22 82 C 18 52, 28 32, 45 15 C 32 38, 28 60, 28 82 Z" fill="#FFFFFF" />
-          <path d="M30 82 C 26 45, 44 22, 60 8 C 46 28, 38 52, 38 82 Z" fill="#FFFFFF" />
-          <path d="M40 82 C 36 55, 58 35, 72 20 C 56 42, 50 60, 50 82 Z" fill="#FFFFFF" />
-          <path d="M50 82 C 46 62, 68 48, 80 35 C 66 52, 60 65, 60 82 Z" fill="#FFFFFF" />
-        </svg>
-        <div class="logo-text-container">
-          <span class="logo-brand-name">SICILIANO</span>
-          <span class="logo-brand-sub">Grama Sintética</span>
-        </div>
+      <a href="#hero" class="logo" id="nav-logo" title="Siciliano Gramas e Pisos">
+        <img src="images/logo_oficial.jpg" alt="Siciliano Gramas e Pisos" class="header-logo-img">
       </a>
       
       <nav>
         <ul class="nav-links" id="navigation-menu">
           <li><a href="#hero" class="active">Início</a></li>
-          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="produtos.html">Produtos</a></li>
           <li><a href="#diferenciais">Vantagens</a></li>
-          <li><a href="#orcamento">Orçamento</a></li>
+          <li><a href="orcamento.html">Orçamento</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-cta">
-        <a href="#orcamento" class="btn btn-accent" id="nav-cta-btn">Solicitar Orçamento</a>
+        <a href="orcamento.html" class="btn btn-accent" id="nav-cta-btn">Solicitar Orçamento</a>
       </div>
 
       <button class="menu-toggle" aria-label="Abrir menu" id="mobile-menu-toggle">
@@ -168,493 +158,38 @@
     </div>
   </div>
 
-  <!-- Products Section -->
-  <section class="section-padding" id="produtos">
+  <!-- Products Teaser Section -->
+  <section class="section-padding" id="produtos" style="background-color: var(--bg-deep);">
     <div class="container">
       <div class="section-header text-center">
-        <span class="badge">Catálogo Completo</span>
+        <span class="badge" style="background-color: rgba(255,255,255,0.05); color: var(--accent); border-color: rgba(104, 165, 62, 0.3)">Portfólio & Catálogo</span>
         <h2>Nossas Soluções em Revestimentos</h2>
-        <p>Explore nossa linha completa de produtos divididos por categorias. Materiais com especificações profissionais, alta durabilidade e instalação sob medida.</p>
+        <p>Conheça nossa variedade de revestimentos de alta performance. Clique no botão abaixo para explorar o catálogo completo com especificações técnicas e fotos reais.</p>
       </div>
 
-      <!-- Mobile Filter Dropdown (Top Right on Mobile viewports) -->
-      <div class="mobile-filter-container">
-        <button class="mobile-filter-trigger" id="mobile-filter-btn" aria-haspopup="listbox" aria-expanded="false">
-          <span>Filtrar: Todos</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </button>
-        <div class="mobile-filter-dropdown" id="mobile-filter-menu" role="listbox">
-          <div class="mobile-filter-item active" data-value="todas">Todos</div>
-          <div class="mobile-filter-item" data-value="gramas">Gramas Sintéticas</div>
-          <div class="mobile-filter-item" data-value="pisos-borracha">Pisos Emborrachados</div>
-          <div class="mobile-filter-item" data-value="pisos-modulares">Pisos Modulares</div>
-          <div class="mobile-filter-item" data-value="autonivelantes">Pisos Líquidos Autonivelantes</div>
-          <div class="mobile-filter-item" data-value="playgrounds">Playgrounds e Brinquedos</div>
-          <div class="mobile-filter-item" data-value="tapetes">Tapetes Personalizados</div>
-          <div class="mobile-filter-item" data-value="protetores">Protetor de Elevador</div>
+      <div class="products-teaser-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; margin-top: 40px;">
+        <div class="teaser-card" style="background-color: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius-md); transition: var(--transition-smooth);">
+          <span style="font-size: 2.5rem; display: block; margin-bottom: 20px;">🌿</span>
+          <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Gramas Sintéticas</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px;">Decorativas de 12/20mm, residenciais premium ultra-macias (Soft) e modelos esportivos society homologados.</p>
+          <a href="produtos.html" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">Ver Modelos ➔</a>
+        </div>
+        <div class="teaser-card" style="background-color: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius-md); transition: var(--transition-smooth);">
+          <span style="font-size: 2.5rem; display: block; margin-bottom: 20px;">🛡️</span>
+          <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Pisos Emborrachados</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px;">Placas anti-impacto e amortecedoras (Ruber-Kap) ideais para academias, Crossfit e playgrounds.</p>
+          <a href="produtos.html" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">Ver Modelos ➔</a>
+        </div>
+        <div class="teaser-card" style="background-color: rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 30px; border-radius: var(--radius-md); transition: var(--transition-smooth);">
+          <span style="font-size: 2.5rem; display: block; margin-bottom: 20px;">🧩</span>
+          <h3 style="margin-bottom: 10px; font-size: 1.3rem;">Pisos Modulares</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 15px;">Pisos plásticos drenantes e intertravados de alta resistência para garagens, playgrounds e quadras de esporte.</p>
+          <a href="produtos.html" style="color: var(--accent); font-weight: 600; font-size: 0.9rem;">Ver Modelos ➔</a>
         </div>
       </div>
 
-      <!-- Category Filter Tabs (Desktop Only) -->
-      <div class="product-tabs">
-        <button class="tab-btn active" data-tab="todas">Todos</button>
-        <button class="tab-btn" data-tab="gramas">Gramas Sintéticas</button>
-        <button class="tab-btn" data-tab="pisos-borracha">Pisos Emborrachados</button>
-        <button class="tab-btn" data-tab="pisos-modulares">Pisos Modulares</button>
-        <button class="tab-btn" data-tab="autonivelantes">Pisos Líquidos Autonivelantes</button>
-        <button class="tab-btn" data-tab="playgrounds">Playgrounds e Brinquedos</button>
-        <button class="tab-btn" data-tab="tapetes">Tapetes Personalizados</button>
-        <button class="tab-btn" data-tab="protetores">Protetor de Elevador</button>
-      </div>
-
-      <div class="products-grid">
-        <!-- 1. Grama Sintética Decorativa -->
-        <div class="product-card" id="prod-grama-decorativa" data-categories="gramas">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/grama sintetica 12mm4.webp" alt="Grama Sintética Decorativa - Foto 1" class="product-img active" loading="eager">
-              <img src="images/grama sintetica 12mm5.webp" alt="Grama Sintética Decorativa - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Decoração & Pets</span>
-          </div>
-          <div class="product-content">
-            <h3>Grama Sintética Decorativa</h3>
-            <p>Ideal para acabamentos estéticos, áreas infantis e espaços pet. Produzida para resistir a intempéries e manter a beleza natural.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas/Espessuras:</strong> 12mm e 20mm</li>
-              <li><strong>Composição:</strong> 100% Polietileno virgem com proteção anti-UV</li>
-              <li><strong>Indicação:</strong> Playgrounds, varandas, jardins internos e áreas pet</li>
-              <li><strong>Diferencial:</strong> Base de látex duplo que facilita drenagem e não esfarela</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2. Grama Sintética Soft -->
-        <div class="product-card" id="prod-grama-soft" data-categories="gramas">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/grama sintetica soft 20mm 30mm 40mm.png" alt="Grama Sintética Soft - Foto 1" class="product-img active" loading="eager">
-              <img src="images/grama_soft.png" alt="Grama Sintética Soft - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Conforto Premium</span>
-          </div>
-          <div class="product-content">
-            <h3>Grama Sintética Soft</h3>
-            <p>Toque extremamente macio e confortável. Desenvolvida com tecnologia que reduz a retenção de calor e simula a grama natural.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas/Espessuras:</strong> 20mm, 30mm e 40mm</li>
-              <li><strong>Composição:</strong> Monofilamento com tecnologia Soft Touch</li>
-              <li><strong>Indicação:</strong> Jardins residenciais premium e bordas de piscina</li>
-              <li><strong>Diferencial:</strong> Alta densidade de pontos por m² e proteção térmica</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. Grama Sintética Esportiva Monofilamento -->
-        <div class="product-card" id="prod-grama-esportiva-monofilamento" data-categories="gramas">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/grama_monofilamento.png" alt="Grama Esportiva Monofilamento - Foto 1" class="product-img active" loading="eager">
-              <img src="images/sports_grass.png" alt="Grama Esportiva Monofilamento - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Society Premium</span>
-          </div>
-          <div class="product-content">
-            <h3>Grama Esportiva Monofilamento</h3>
-            <p>Excelente resiliência e maciez. Fios que retornam rapidamente à posição vertical após o impacto, oferecendo excelente jogabilidade.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas/Espessuras:</strong> 40mm e 50mm</li>
-              <li><strong>Composição:</strong> Fio monofilamento de alta durabilidade e proteção UV</li>
-              <li><strong>Indicação:</strong> Quadras de futebol society comerciais e profissionais</li>
-              <li><strong>Diferencial:</strong> Alta durabilidade dos fios mantendo a maciez e estabilidade</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. Grama Sintética Esportiva Fibrilada -->
-        <div class="product-card" id="prod-grama-esportiva-fibrilada" data-categories="gramas">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/grama_fibrilada.png" alt="Grama Esportiva Fibrilada - Foto 1" class="product-img active" loading="eager">
-              <img src="images/sports_grass.png" alt="Grama Esportiva Fibrilada - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Alta Resistência</span>
-          </div>
-          <div class="product-content">
-            <h3>Grama Esportiva Fibrilada</h3>
-            <p>Fibras interligadas em formato de colmeia. Ideal para quadras públicas ou comerciais com alto fluxo de jogos e alta fricção.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas/Espessuras:</strong> 40mm e 50mm</li>
-              <li><strong>Composição:</strong> Polietileno fibrilado de alta resistência à tração</li>
-              <li><strong>Indicação:</strong> Campos comerciais de futebol society de alto uso</li>
-              <li><strong>Diferencial:</strong> Estrutura robusta que retém melhor a borracha de amortecimento</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. Placa Emborrachada -->
-        <div class="product-card" id="prod-placa-emborrachada" data-categories="pisos-borracha">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/placa_borracha.png" alt="Placa Emborrachada - Foto 1" class="product-img active" loading="eager">
-              <img src="images/gym_floor.png" alt="Placa Emborrachada - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Amortecimento</span>
-          </div>
-          <div class="product-content">
-            <h3>Placa Emborrachada</h3>
-            <p>Placas amortecedoras de alto impacto, ideais para áreas fitness de musculação, Crossfit e playgrounds residenciais ou públicos.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Placas de 50x50cm ou 1m x 1m</li>
-              <li><strong>Espessuras:</strong> 10mm, 20mm e 30mm</li>
-              <li><strong>Composição:</strong> Borracha reciclada vulcanizada de alta densidade</li>
-              <li><strong>Diferencial:</strong> Excelente atenuação de ruídos e isolamento mecânico de peso livre</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. Ruber-Kap -->
-        <div class="product-card" id="prod-ruberkap-nova" data-categories="pisos-borracha">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/ruberkap.webp" alt="Ruber-Kap - Foto 1" class="product-img active" loading="eager">
-              <img src="images/ruberkap.jpg" alt="Ruber-Kap - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Academia & Crossfit</span>
-          </div>
-          <div class="product-content">
-            <h3>Ruber-Kap</h3>
-            <p>Revestimento de alto padrão para amortecimento de queda de pesos. Excelente absorção de impacto físico e facilidade de limpeza diária.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Placas de 50x50cm ou 1m x 1m | Espessuras de 15mm, 20mm e 25mm</li>
-              <li><strong>Composição:</strong> Composto de borracha reciclada SBR de alta densidade</li>
-              <li><strong>Indicação:</strong> Áreas de peso livre em academias e boxes de alta intensidade</li>
-              <li><strong>Diferencial:</strong> Previne lesões articulares e fissuras no contrapiso sob quedas de barras</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 7. H-Kap -->
-        <div class="product-card" id="prod-hkap" data-categories="pisos-borracha">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/h-kap1.webp" alt="H-Kap Revestimento - Foto 1" class="product-img active" loading="eager">
-              <img src="images/H KAP1.webp" alt="H-Kap Revestimento - Foto 2" class="product-img" loading="lazy">
-              <img src="images/h-kap.jpg" alt="H-Kap Revestimento - Foto 3" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">H-Kap Flexível</span>
-          </div>
-          <div class="product-content">
-            <h3>H-Kap</h3>
-            <p>Soluções em passadeiras de PVC flexível. Design estriado que retém detritos e escoa água, mantendo o ambiente limpo e seguro.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Rolos com 1.2m de largura e comprimento flexível</li>
-              <li><strong>Composição:</strong> PVC virgem flexível de alta resistência química</li>
-              <li><strong>Indicação:</strong> Decks secos, corredores de condomínios e oficinas leves</li>
-              <li><strong>Diferencial:</strong> Fácil corte para ajuste no local, lavável e higiênico</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 8. Acqua-Kap -->
-        <div class="product-card" id="prod-acquakap" data-categories="pisos-modulares">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/acqua-kap1.webp" alt="Piso Acqua-Kap - Foto 1" class="product-img active" loading="eager">
-              <img src="images/acqua-kap2.jpg" alt="Piso Acqua-Kap - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Áreas Úmidas</span>
-          </div>
-          <div class="product-content">
-            <h3>Acqua-Kap</h3>
-            <p>Piso modular vazado desenvolvido especificamente para locais com presença constante de água. Segurança total contra quedas.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Módulos encaixáveis de 30x30cm | Espessura de 13mm</li>
-              <li><strong>Composição:</strong> PVC flexível antiderrapante</li>
-              <li><strong>Indicação:</strong> Bordas de piscina, saunas, vestiários e banheiros</li>
-              <li><strong>Diferencial:</strong> Tratamento antibacteriano e fungicida (sem odores ou mofo)</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 9. Piso Modular Drenante - Garagem -->
-        <div class="product-card" id="prod-piso-modular-carro" data-categories="pisos-modulares">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/piso modular carro.jpg" alt="Piso Modular Garagem - Foto 1" class="product-img active" loading="eager">
-              <img src="images/PISO MODULAR CARROS.webp" alt="Piso Modular Garagem - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Automotivo & Garagens</span>
-          </div>
-          <div class="product-content">
-            <h3>Piso Modular - Garagens</h3>
-            <p>Perfeito para garagens, oficinas premium e estandes de carros. Suporta tráfego e estacionamento de veículos pesados, mantendo um design luxuoso.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</li>
-              <li><strong>Composição:</strong> Polipropileno (PP) virgem de alta resistência mecânica e UV</li>
-              <li><strong>Indicação:</strong> Oficinas premium, garagens de condomínios e estandes de eventos</li>
-              <li><strong>Diferencial:</strong> Drenagem total de óleo e água, suporta peso de veículos sem quebrar</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 10. Piso Modular Drenante - Playground -->
-        <div class="product-card" id="prod-piso-modular-playground" data-categories="pisos-modulares">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/piso modular playground.jpg" alt="Piso Modular Playground - Foto 1" class="product-img active" loading="eager">
-              <img src="images/PISO MODULAR PLAYGROUND 2.png" alt="Piso Modular Playground - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Lazer & Escolas</span>
-          </div>
-          <div class="product-content">
-            <h3>Piso Modular - Playground</h3>
-            <p>Excelente para áreas infantis e quintais. Reduz o impacto em quedas e drena rapidamente a água, permitindo o uso logo após a chuva.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</li>
-              <li><strong>Composição:</strong> Polipropileno (PP) de alto amortecimento de queda</li>
-              <li><strong>Indicação:</strong> Parquinhos de condomínio, escolas e quintais de lazer</li>
-              <li><strong>Diferencial:</strong> Superfície não tóxica, sem farpas, resistente ao calor sob sol intenso</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 11. Piso Modular Drenante - Quadra Esportiva -->
-        <div class="product-card" id="prod-piso-modular-quadra" data-categories="pisos-modulares">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/piso modular quadra.jpg" alt="Piso Modular Quadra - Foto 1" class="product-img active" loading="eager">
-              <img src="images/PISO MODULAR QUADRA 2.webp" alt="Piso Modular Quadra - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Esporte & Quadras</span>
-          </div>
-          <div class="product-content">
-            <h3>Piso Modular - Quadras</h3>
-            <p>Desenvolvido para basquete, futsal, vôlei e outras modalidades. Proporciona o quique perfeito da bola e reduz impacto nas articulações.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</li>
-              <li><strong>Composição:</strong> PP virgem com estabilizantes térmicos e proteção anti-UV</li>
-              <li><strong>Indicação:</strong> Quadras poliesportivas comerciais, clubes e condomínios</li>
-              <li><strong>Diferencial:</strong> Excelente grip antiderrapante, linhas de marcação fixadas no piso</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 12. Piso Autonivelante Residencial -->
-        <div class="product-card" id="prod-autonivelante-residencial" data-categories="autonivelantes">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/balde_piso_liquido_edit.png" alt="Balde Piso Líquido - Foto 1" class="product-img active" loading="eager">
-              <img src="images/autonivelante residencial.webp" alt="Piso Autonivelante Residencial - Foto 2" class="product-img" loading="lazy">
-              <img src="images/autonivelante residencial4.jpg" alt="Piso Autonivelante Residencial - Foto 3" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Estética & Brilho</span>
-          </div>
-          <div class="product-content">
-            <h3>Pisos Autonivelantes Residenciais</h3>
-            <p>Revestimento líquido monolítico (porcelanato líquido epóxi/poliuretano) de alto brilho e sofisticação para salas, quartos e cozinhas. Realizamos toda a preparação do contrapiso e aplicação completa com equipe especializada.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas/Espessuras:</strong> Aplicação sob medida com espessura final de 2mm a 4mm</li>
-              <li><strong>Composição:</strong> Resinas autonivelantes de alta performance e cura rápida</li>
-              <li><strong>Cores & Padrões:</strong> Várias cores sólidas, metalizadas, efeitos 3D e padrões tipo granito ou mármore</li>
-              <li><strong>Diferencial:</strong> Impermeabilidade total, sem rejunte (monolítico), resistência a riscos e fácil limpeza</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 13. Piso Autonivelante Empresarial e Comercial -->
-        <div class="product-card" id="prod-autonivelante-empresarial" data-categories="autonivelantes">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/balde_piso_liquido_edit.png" alt="Balde Piso Líquido - Foto 1" class="product-img active" loading="eager">
-              <img src="images/autonivelante empresarial.webp" alt="Piso Autonivelante Empresarial - Foto 2" class="product-img" loading="lazy">
-              <img src="images/autonivelannte empresarial2.webp" alt="Piso Autonivelante Empresarial - Foto 3" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Tráfego Pesado</span>
-          </div>
-          <div class="product-content">
-            <h3>Pisos Autonivelantes Comerciais & Industriais</h3>
-            <p>Revestimento líquido de alto desempenho para tráfego intenso em garagens, indústrias, galpões e oficinas. Realizamos toda a preparação da base, remoção de contaminações e a aplicação técnica completa.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Espessuras:</strong> Customizado de 3mm a 6mm dependendo da carga operacional de tráfego</li>
-              <li><strong>Variações de Linha:</strong> Piso líquido emborrachado (anti-impacto), piso antiderrapante e piso hidrofóbico</li>
-              <li><strong>Indicação:</strong> Empresas, oficinas mecânicas, indústrias, garagens de condomínio, galpões</li>
-              <li><strong>Diferencial:</strong> Suporta empilhadeiras e cargas pesadas, e alta resistência a solventes e óleos</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 14. Playgrounds Completos -->
-        <div class="product-card" id="prod-playground-completo" data-categories="playgrounds">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/playgrond1.jpg" alt="Playground Completo - Foto 1" class="product-img active" loading="eager">
-              <img src="images/playgournd2.jpg" alt="Playground Completo - Foto 2" class="product-img" loading="lazy">
-              <img src="images/playground3.jpg" alt="Playground Completo - Foto 3" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Seguro & Resistente</span>
-          </div>
-          <div class="product-content">
-            <h3>Playgrounds Completos</h3>
-            <p>Projetos e instalação de playgrounds infantis sob medida para condomínios, escolas, chácaras e áreas de lazer. Estruturas robustas de altíssima resistência a intempéries (sol/chuva) e uso constante, projetadas para garantir a máxima diversão e segurança das crianças.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Modelos/Estrutura:</strong> Estruturas em aço carbono galvanizado de alta durabilidade com pintura eletrostática</li>
-              <li><strong>Componentes:</strong> Escorregadores curvos e retos, balanço duplo, pontes suspensas e escaladas</li>
-              <li><strong>Segurança:</strong> Cantos arredondados, parafusos embutidos e total conformidade com as normas ABNT NBR 16071</li>
-              <li><strong>Diferencial:</strong> Alta durabilidade contra intempéries, peças plásticas atóxicas com proteção anti-UV e montagem especializada completa</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 12. Tapete Vinil Personalizado (Limpa) -->
-        <div class="product-card" id="prod-tapete-vinil-virgem" data-categories="tapetes">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/TAPETE VINIL.jpg" alt="Tapete Vinil - Foto 1" class="product-img active" loading="eager">
-              <img src="images/TAPETE VINIL.webp" alt="Tapete Vinil - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Matéria-Prima Virgem</span>
-          </div>
-          <div class="product-content">
-            <h3>Tapete Vinil Personalizado (Limpa)</h3>
-            <p>Capacho produzido com PVC 100% virgem para reter sujeiras sólidas na entrada. Personalizado com a sua marca computadorizada por vulcanização.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Sob medida de acordo com o espaço da sua porta</li>
-              <li><strong>Material:</strong> **Matéria Virgem** (durabilidade e vida útil muito maior que reciclados)</li>
-              <li><strong>Indicação:</strong> Entradas comerciais, condomínios, clínicas e elevadores</li>
-              <li><strong>Diferencial:</strong> Fibras de vinil de alta resiliência (não racha, não desbota)</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 13. Tapete Cleankap Personalizado -->
-        <div class="product-card" id="prod-tapete-cleankap" data-categories="tapetes">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/cleankap.jpg" alt="Tapete Cleankap - Foto 1" class="product-img active" loading="eager">
-              <img src="images/CLEANKAP6.webp" alt="Tapete Cleankap - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Limpa & Seca</span>
-          </div>
-          <div class="product-content">
-            <h3>Tapete Cleankap Personalizado</h3>
-            <p>O tapete completo para controle de poeiras finas e umidade de calçados. Ideal para manter os pisos internos secos e limpos em dias chuvosos.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Customizado com acabamentos de borda em borracha flexível</li>
-              <li><strong>Composição:</strong> Fibras têxteis de alta absorção acopladas em borracha nitrílica</li>
-              <li><strong>Indicação:</strong> Entradas de shoppings, recepções de hotéis, escritórios comerciais</li>
-              <li><strong>Diferencial:</strong> Base antiderrapante resistente e lavável em máquina industrial</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 14. Protetor de Elevador -->
-        <div class="product-card" id="prod-protetor-elevador" data-categories="protetores">
-          <div class="product-img-wrapper slider-container">
-            <div class="slider-slides">
-              <img src="images/protetor de elevador.jpeg" alt="Protetor de Elevador - Foto 1" class="product-img active" loading="eager">
-              <img src="images/protetor de elevador2.jpeg" alt="Protetor de Elevador - Foto 2" class="product-img" loading="lazy">
-            </div>
-            <button class="slider-btn prev-btn" aria-label="Foto anterior">&#10094;</button>
-            <button class="slider-btn next-btn" aria-label="Próxima foto">&#10095;</button>
-            <span class="product-tag">Proteção Acolchoada</span>
-          </div>
-          <div class="product-content">
-            <h3>Protetor de Elevador</h3>
-            <p>Proteção acolchoada de alta densidade para cabines de elevadores de condomínios e edifícios comerciais. Evita riscos, batidas e danos causados pelo transporte de mudanças e materiais de construção.</p>
-            <ul class="product-features" style="border-top: 1px solid #F1F5F9; padding-top: 15px; margin-bottom: 20px;">
-              <li><strong>Medidas:</strong> Fabricação sob medida de acordo com as dimensões da cabine do seu elevador</li>
-              <li><strong>Composição:</strong> Tecido externo em Nylon 600 impermeável (anti-rasgo), espuma D28 de alta absorção e forro macio anti-risco</li>
-              <li><strong>Indicação:</strong> Elevadores de condomínios residenciais ou comerciais durante mudanças, obras e carga</li>
-              <li><strong>Diferencial:</strong> Tecido reforçado anti-rasgo, ganchos reguláveis ou ventosas de alta sucção e fácil limpeza</li>
-            </ul>
-            <div class="product-footer">
-              <a href="#orcamento" class="product-cta-text">Fazer Orçamento ➔</a>
-            </div>
-          </div>
-        </div>
+      <div style="text-center: center; display: flex; justify-content: center;">
+        <a href="produtos.html" class="btn btn-accent magnet-target" style="padding: 16px 36px; font-size: 1rem; border-radius: var(--radius-full);">Explorar Catálogo Completo (17 Revestimentos) ➔</a>
       </div>
     </div>
   </section>
@@ -749,119 +284,15 @@
 
 
 
-  <!-- Budget Form & Contact Section -->
-  <section class="section-padding contact-section" id="orcamento">
-    <div class="container">
-      <div class="contact-info">
-        <span class="badge" style="background-color: rgba(34, 197, 94, 0.1); color: var(--accent);">Orçamento sem Compromisso</span>
-        <h2>Pronto para Transformar seu Ambiente?</h2>
-        <p>Preencha os dados do projeto no formulário ao lado. Nosso sistema processará as informações e montará uma mensagem direta para a nossa equipe pelo WhatsApp para acelerar seu atendimento.</p>
-        
-        <div class="contact-details-list">
-          <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-              </svg>
-            </div>
-            <div>
-              <h4>WhatsApp Comercial</h4>
-              <p>+55 (67) 99334-0565</p>
-            </div>
-          </div>
-          <div class="contact-detail-item">
-            <div class="contact-detail-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-            </div>
-            <div>
-              <h4>E-mail de Contato</h4>
-              <p>sicilianogramas@gmail.com</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="trust-shield-card">
-          <div class="shield-icon" aria-hidden="true">🛡️</div>
-          <div>
-            <h4>Seus dados estão protegidos</h4>
-            <p>Usamos suas informações de contato exclusivamente para criar seu orçamento personalizado e realizar o atendimento inicial.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Interactive Budget Form -->
-      <div class="form-card">
-        <h3>Solicitar Orçamento Rápido</h3>
-        <p class="form-subtitle">Resposta rápida em menos de 15 minutos em horário comercial.</p>
-        
-        <form id="whatsapp-form" novalidate>
-          <div class="form-group">
-            <label for="name">Seu Nome Completo *</label>
-            <input type="text" id="name" class="form-control" placeholder="Ex: João Silva" required>
-          </div>
-          
-          <div class="form-group">
-            <label for="phone">Seu WhatsApp *</label>
-            <input type="tel" id="phone" class="form-control" placeholder="Ex: (67) 99334-0565" required>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="product">Tipo de Revestimento *</label>
-              <select id="product" class="form-control" required>
-                <option value="" disabled selected>Selecione...</option>
-                <optgroup label="Gramas Sintéticas">
-                  <option value="grama-decorativa">Grama Sintética Decorativa (12mm e 20mm)</option>
-                  <option value="grama-soft">Grama Sintética Soft (20mm, 30mm e 40mm)</option>
-                  <option value="grama-esportiva-monofilamento">Grama Esportiva Monofilamento (40mm e 50mm)</option>
-                  <option value="grama-esportiva-fibrilada">Grama Esportiva Fibrilada (40mm e 50mm)</option>
-                </optgroup>
-                <optgroup label="Pisos Emborrachados">
-                  <option value="placa-emborrachada">Placa Emborrachada (50x50cm ou 1m x 1m | 10, 20, 30mm)</option>
-                  <option value="ruberkap">Ruber-Kap</option>
-                  <option value="hkap">H-Kap (PVC Revestimentos)</option>
-                </optgroup>
-                <optgroup label="Pisos Modulares">
-                  <option value="acquakap">Acqua-Kap (Áreas Úmidas)</option>
-                  <option value="piso-modular-carro">Piso Modular - Garagens</option>
-                  <option value="piso-modular-playground">Piso Modular - Playground</option>
-                  <option value="piso-modular-quadra">Piso Modular - Quadras</option>
-                </optgroup>
-                <optgroup label="Pisos Líquidos Autonivelantes">
-                  <option value="autonivelante-residencial">Pisos Autonivelantes Residenciais</option>
-                  <option value="autonivelante-empresarial">Pisos Autonivelantes Comerciais & Industriais</option>
-                </optgroup>
-                <optgroup label="Playgrounds e Brinquedos">
-                  <option value="playground-completo">Playgrounds Completos (Ecológico & Modular)</option>
-                </optgroup>
-                <optgroup label="Tapetes Personalizados">
-                  <option value="tapete-vinil">Tapete Vinil Personalizado (Limpa)</option>
-                  <option value="tapete-cleankap">Tapete Cleankap Personalizado</option>
-                </optgroup>
-                <optgroup label="Protetores de Elevador">
-                  <option value="protetor-elevador">Protetor de Elevador Acolchoado</option>
-                </optgroup>
-              </select>
-            </div>
-            
-            <div class="form-group">
-              <label for="area">Área Estimada (m²) *</label>
-              <input type="number" id="area" class="form-control" min="1" placeholder="Ex: 50" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Mensagem ou Detalhes (Opcional)</label>
-            <textarea id="message" class="form-control" placeholder="Descreva brevemente o seu projeto ou dúvidas sobre a instalação..."></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn">
-            Enviar Dados para WhatsApp ➔
-          </button>
-        </form>
+  <!-- Budget CTA Section -->
+  <section class="section-padding contact-section" id="orcamento" style="background-color: var(--bg-pure);">
+    <div class="container text-center" style="max-width: 800px; margin: 0 auto;">
+      <span class="badge" style="background-color: rgba(34, 197, 94, 0.1); color: var(--accent);">Orçamento Rápido</span>
+      <h2 style="font-size: 2.5rem; margin-top: 15px; margin-bottom: 20px;">Precisa de um Projeto Personalizado?</h2>
+      <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6; margin-bottom: 35px;">Solicite um orçamento sem compromisso e receba o atendimento personalizado com nossa equipe de engenharia e instalação.</p>
+      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+        <a href="orcamento.html" class="btn btn-accent" style="padding: 15px 32px;">Solicitar Orçamento Online ➔</a>
+        <a href="https://api.whatsapp.com/send?phone=5567993340565&text=Olá! Gostaria de um orçamento rápido." class="btn btn-outline" target="_blank" rel="noopener noreferrer" style="padding: 15px 32px;">Falar Direto no WhatsApp</a>
       </div>
     </div>
   </section>
@@ -949,18 +380,8 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-logo-desc">
-          <a href="#hero" class="logo" style="margin-bottom: 20px;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="logo-svg" style="height: 38px;">
-              <circle cx="50" cy="50" r="48" fill="#68A53E" />
-              <path d="M22 82 C 18 52, 28 32, 45 15 C 32 38, 28 60, 28 82 Z" fill="#FFFFFF" />
-              <path d="M30 82 C 26 45, 44 22, 60 8 C 46 28, 38 52, 38 82 Z" fill="#FFFFFF" />
-              <path d="M40 82 C 36 55, 58 35, 72 20 C 56 42, 50 60, 50 82 Z" fill="#FFFFFF" />
-              <path d="M50 82 C 46 62, 68 48, 80 35 C 66 52, 60 65, 60 82 Z" fill="#FFFFFF" />
-            </svg>
-            <div class="logo-text-container">
-              <span class="logo-brand-name" style="font-size: 1.7rem;">SICILIANO</span>
-              <span class="logo-brand-sub" style="font-size: 0.52rem; letter-spacing: 3.5px;">Grama Sintética</span>
-            </div>
+          <a href="#hero" class="logo" style="margin-bottom: 20px;" title="Siciliano Gramas e Pisos">
+            <img src="images/logo_oficial.jpg" alt="Siciliano Gramas e Pisos" class="footer-logo-img">
           </a>
           <p>Especialistas no fornecimento e instalação profissional de grama sintética e pisos emborrachados em todo o estado de Mato Grosso do Sul. Qualidade comprovada e satisfação garantida.</p>
         </div>
@@ -969,9 +390,9 @@
           <h4 class="footer-title">Links Rápidos</h4>
           <ul class="footer-links">
             <li><a href="#hero">Início</a></li>
-            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="produtos.html">Produtos</a></li>
             <li><a href="#diferenciais">Vantagens</a></li>
-            <li><a href="#orcamento">Orçamento</a></li>
+            <li><a href="orcamento.html">Orçamento</a></li>
           </ul>
         </div>
         
