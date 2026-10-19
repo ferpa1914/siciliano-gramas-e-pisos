@@ -79,8 +79,8 @@ git push origin main
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY`
 6. Clique em **Apply** e aguarde de 3 a 5 minutos.
-7. Quando aparecer **Live**, seu site estará em um endereço como
-   `https://siciliano-gramas-e-pisos.onrender.com`
+7. Quando aparecer **Live**, seu site estará no endereço oficial:
+   **`https://siciliano-gramas-e-pisos-t5rm.onrender.com`**
 
 **Já ficou configurado automaticamente:**
 - **Plano Free** (sem cobrança, não pede cartão).
