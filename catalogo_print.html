@@ -24,6 +24,11 @@
       background-color: #f1f5f9;
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+      counter-reset: catalog-page;
+    }
+    
+    .page {
+      counter-increment: catalog-page;
     }
 
     /* Page container */
@@ -103,7 +108,7 @@
     }
 
     .page-footer .page-number::after {
-      content: counter(page);
+      content: counter(catalog-page);
     }
 
     /* COVER PAGE */
@@ -224,11 +229,12 @@
     .row-product-image-large {
       width: 75mm;
       height: 75mm;
-      object-fit: cover; /* Uniform same-size format */
+      object-fit: contain; /* Complete view without cropping */
       background-color: #f8fafc;
       border-radius: 6px;
       flex-shrink: 0;
       border: 1px solid #f1f5f9;
+      padding: 2mm;
     }
 
     .row-product-details-large {
@@ -387,7 +393,7 @@
 
   <!-- PAGE 1: COVER -->
   <div class="page cover-page">
-    <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo" class="cover-logo">
+    <img src="images/logo_verde.jpeg" alt="Siciliano Logo" class="cover-logo">
     <div class="cover-badge">Catálogo Oficial de Produtos</div>
     <h1 class="cover-title">Gramas Sintéticas &<br>Pisos Emborrachados</h1>
     <div class="cover-divider"></div>
@@ -402,7 +408,7 @@
   <!-- PAGE 2: GRAMAS SINTÉTICAS (Part 1/2) -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
         <div class="brand-subtitle">Catálogo Oficial — Página 2</div>
@@ -414,7 +420,7 @@
     <div class="product-list-2rows">
       <!-- Product 1 -->
       <div class="row-product-card-large">
-        <img src="images/grama sintetica 12mm4.webp" alt="Grama Sintética Decorativa" class="row-product-image-large">
+        <img src="images/grama_sintetica_12mm4.webp" alt="Grama Sintética Decorativa" class="row-product-image-large">
         <div class="row-product-details-large">
           <h3>Grama Sintética Decorativa</h3>
           <p>Ideal para acabamentos estéticos, áreas infantis e espaços pet. Produzida para resistir a intempéries e manter a beleza natural.</p>
@@ -441,7 +447,7 @@
 
       <!-- Product 2 -->
       <div class="row-product-card-large">
-        <img src="images/grama sintetica soft 20mm 30mm 40mm.png" alt="Grama Sintética Soft" class="row-product-image-large">
+        <img src="images/grama_sintetica_soft_20mm_30mm_40mm.png" alt="Grama Sintética Soft" class="row-product-image-large">
         <div class="row-product-details-large">
           <h3>Grama Sintética Soft</h3>
           <p>Toque extremamente macio e confortável. Desenvolvida com tecnologia que reduz a retenção de calor e simula a grama natural.</p>
@@ -476,7 +482,7 @@
   <!-- PAGE 3: GRAMAS SINTÉTICAS (Part 2/2) -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
         <div class="brand-subtitle">Catálogo Oficial — Página 3</div>
@@ -550,7 +556,7 @@
   <!-- PAGE 4: PISOS EMBORRACHADOS (Part 1/2) -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
         <div class="brand-subtitle">Catálogo Oficial — Página 4</div>
@@ -621,20 +627,20 @@
     </div>
   </div>
 
-  <!-- PAGE 5: PISOS EMBORRACHADOS (Part 2/2) -->
+    <!-- PAGE 5: PISOS EMBORRACHADOS & ÁREAS ÚMIDAS -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
         <div class="brand-subtitle">Catálogo Oficial — Página 5</div>
       </div>
     </div>
 
-    <div class="category-section-title">Pisos Emborrachados</div>
+    <div class="category-section-title">Pisos Emborrachados & Áreas Úmidas</div>
 
     <div class="product-list-2rows">
-      <!-- Product 7 -->
+      <!-- Product 7: H-Kap -->
       <div class="row-product-card-large">
         <img src="images/h-kap1.webp" alt="H-Kap" class="row-product-image-large">
         <div class="row-product-details-large">
@@ -661,32 +667,7 @@
         </div>
       </div>
 
-      <!-- Left space for aesthetics as this category has 3 items in total -->
-      <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center; border: 1px dashed #e2e8f0; border-radius: 8px; height: 103mm; background-color: #fafbfd;">
-        <p style="font-size: 10pt; color: #94a3b8; font-style: italic;">Siciliano Revestimentos — Qualidade e Compromisso Comercial</p>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Contato: (67) 99334-0565</span>
-      <span class="page-number">Página </span>
-    </div>
-  </div>
-
-  <!-- PAGE 6: PISOS MODULARES (Part 1/2) -->
-  <div class="page">
-    <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
-      <div class="brand-info">
-        <div class="brand-title">Siciliano Revestimentos</div>
-        <div class="brand-subtitle">Catálogo Oficial — Página 6</div>
-      </div>
-    </div>
-
-    <div class="category-section-title">Pisos Modulares</div>
-
-    <div class="product-list-2rows">
-      <!-- Product 8 -->
+      <!-- Product 8: Acqua-Kap -->
       <div class="row-product-card-large">
         <img src="images/acqua-kap1.webp" alt="Acqua-Kap" class="row-product-image-large">
         <div class="row-product-details-large">
@@ -712,13 +693,33 @@
           </table>
         </div>
       </div>
+    </div>
 
-      <!-- Product 9 -->
+    <div class="page-footer">
+      <span>Contato: (67) 99334-0565</span>
+      <span class="page-number">Página </span>
+    </div>
+  </div>
+
+  <!-- PAGE 6: PISO MODULAR (GARAGENS, PLAYGROUND E QUADRAS) -->
+  <div class="page">
+    <div class="page-header">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
+      <div class="brand-info">
+        <div class="brand-title">Siciliano Revestimentos</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 6</div>
+      </div>
+    </div>
+
+    <div class="category-section-title">Pisos Modulares Multiuso</div>
+
+    <div class="product-list-2rows">
+      <!-- Product 9: Piso Modular Unificado -->
       <div class="row-product-card-large">
-        <img src="images/piso modular carro.jpg" alt="Piso Modular Garagens" class="row-product-image-large">
+        <img src="images/piso_modular_carro.jpg" alt="Piso Modular Multiuso" class="row-product-image-large">
         <div class="row-product-details-large">
-          <h3>Piso Modular - Garagens</h3>
-          <p>Perfeito para garagens, oficinas premium e estandes de carros. Suporta tráfego e estacionamento de veículos pesados, mantendo um design luxuoso.</p>
+          <h3>Piso Modular (Garagens, Playgrounds e Quadras)</h3>
+          <p>Módulos encaixáveis de alta resistência mecânica para tráfego veicular, absorção de impacto infantil e prática poliesportiva com alta aderência e drenagem.</p>
           <table class="row-specs-table-large">
             <tr>
               <th>Medidas:</th>
@@ -726,17 +727,29 @@
             </tr>
             <tr>
               <th>Composição:</th>
-              <td>Polipropileno (PP) virgem de alta resistência mecânica e UV</td>
+              <td>Polipropileno (PP) virgem de alta resistência mecânica e proteção anti-UV</td>
             </tr>
             <tr>
               <th>Indicação:</th>
-              <td>Oficinas premium, garagens de condomínios e estandes de eventos</td>
+              <td>Garagens residenciais, oficinas, playgrounds infantis e quadras poliesportivas</td>
             </tr>
             <tr>
               <th>Diferencial:</th>
-              <td>Drenagem total de óleo e água, suporta peso de veículos sem quebrar</td>
+              <td>Drenagem rápida, suporte a veículos pesados e quique perfeito para esportes</td>
             </tr>
           </table>
+        </div>
+      </div>
+
+      <!-- Gallery Row showing the multiple applications -->
+      <div class="row-product-card-large" style="border: none; box-shadow: none; background: transparent; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items: stretch;">
+        <div style="border-radius: 8px; overflow: hidden; border: 1.5px solid #3E5F30; background-color: #ffffff; padding: 3mm; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="images/piso_modular_playground.jpg" alt="Aplicação em Playground" style="width: 100%; height: 70mm; object-fit: contain; background-color: #f8fafc; border-radius: 4px;">
+          <p style="font-size: 8.5pt; font-weight: 600; color: #3E5F30; margin-top: 2.5mm; text-align: center;">Aplicação: Playgrounds & Lazer Infantil</p>
+        </div>
+        <div style="border-radius: 8px; overflow: hidden; border: 1.5px solid #3E5F30; background-color: #ffffff; padding: 3mm; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <img src="images/piso_modular_quadra.jpg" alt="Aplicação em Quadras" style="width: 100%; height: 70mm; object-fit: contain; background-color: #f8fafc; border-radius: 4px;">
+          <p style="font-size: 8.5pt; font-weight: 600; color: #3E5F30; margin-top: 2.5mm; text-align: center;">Aplicação: Quadras Poliesportivas</p>
         </div>
       </div>
     </div>
@@ -747,87 +760,13 @@
     </div>
   </div>
 
-  <!-- PAGE 7: PISOS MODULARES (Part 2/2) -->
+  <!-- PAGE 7: PISOS LÍQUIDOS AUTONIVELANTES -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
         <div class="brand-subtitle">Catálogo Oficial — Página 7</div>
-      </div>
-    </div>
-
-    <div class="category-section-title">Pisos Modulares</div>
-
-    <div class="product-list-2rows">
-      <!-- Product 10 -->
-      <div class="row-product-card-large">
-        <img src="images/piso modular playground.jpg" alt="Piso Modular Playground" class="row-product-image-large">
-        <div class="row-product-details-large">
-          <h3>Piso Modular - Playground</h3>
-          <p>Excelente para áreas infantis e quintais. Reduz o impacto em quedas e drena rapidamente a água, permitindo o uso logo após a chuva.</p>
-          <table class="row-specs-table-large">
-            <tr>
-              <th>Medidas:</th>
-              <td>Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</td>
-            </tr>
-            <tr>
-              <th>Composição:</th>
-              <td>Polipropileno (PP) de alto amortecimento de queda</td>
-            </tr>
-            <tr>
-              <th>Indicação:</th>
-              <td>Parquinhos de condomínio, escolas e quintais de lazer</td>
-            </tr>
-            <tr>
-              <th>Diferencial:</th>
-              <td>Superfície não tóxica, sem farpas, resistente ao calor sob sol intenso</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <!-- Product 11 -->
-      <div class="row-product-card-large">
-        <img src="images/piso modular quadra.jpg" alt="Piso Modular Quadras" class="row-product-image-large">
-        <div class="row-product-details-large">
-          <h3>Piso Modular - Quadras</h3>
-          <p>Desenvolvido para basquete, futsal, vôlei e outras modalidades. Proporciona o quique perfeito da bola e reduz impacto nas articulações esportivas.</p>
-          <table class="row-specs-table-large">
-            <tr>
-              <th>Medidas:</th>
-              <td>Módulos de 30x30cm ou 40x40cm | Espessura de 15mm</td>
-            </tr>
-            <tr>
-              <th>Composição:</th>
-              <td>PP virgem com estabilizantes térmicos e proteção anti-UV</td>
-            </tr>
-            <tr>
-              <th>Indicação:</th>
-              <td>Quadras poliesportivas comerciais, clubes e condomínios</td>
-            </tr>
-            <tr>
-              <th>Diferencial:</th>
-              <td>Excelente grip antiderrapante, linhas de marcação fixadas no piso</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Contato: (67) 99334-0565</span>
-      <span class="page-number">Página </span>
-    </div>
-  </div>
-
-  <!-- PAGE 8: PISOS LÍQUIDOS AUTONIVELANTES -->
-  <div class="page">
-    <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
-      <div class="brand-info">
-        <div class="brand-title">Siciliano Revestimentos</div>
-        <div class="brand-subtitle">Catálogo Oficial — Página 8</div>
       </div>
     </div>
 
@@ -895,13 +834,13 @@
     </div>
   </div>
 
-  <!-- PAGE 9: PLAYGROUNDS E BRINQUEDOS -->
+  <!-- PAGE 8: PLAYGROUNDS E BRINQUEDOS -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
-        <div class="brand-subtitle">Catálogo Oficial — Página 9</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 8</div>
       </div>
     </div>
 
@@ -910,7 +849,7 @@
     <div class="product-list-2rows">
       <!-- Product 14 -->
       <div class="row-product-card-large">
-        <img src="images/playgrond1.jpg" alt="Playgrounds Completos" class="row-product-image-large">
+        <img src="images/playground1.jpg" alt="Playgrounds Completos" class="row-product-image-large">
         <div class="row-product-details-large">
           <h3>Playgrounds Completos</h3>
           <p>Projetos e instalação de playgrounds infantis sob medida para condomínios, escolas, chácaras e áreas de lazer. Estruturas robustas de altíssima resistência a intempéries (sol/chuva) e uso constante, projetadas para garantir a máxima diversão e segurança das crianças.</p>
@@ -938,10 +877,10 @@
       <!-- Gallery Row to fill the page beautifully -->
       <div class="row-product-card-large" style="border: none; box-shadow: none; background: transparent; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items: stretch;">
         <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--card-bg); height: 50mm;">
-          <img src="images/playgournd2.jpg" alt="Modelo Playground Modular" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="images/playground2.jpg" alt="Modelo Playground Modular" style="width: 100%; height: 100%; object-fit: contain; background-color: #f8fafc;">
         </div>
         <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-color); background-color: var(--card-bg); height: 50mm;">
-          <img src="images/playground3.jpg" alt="Modelo Playground Linha 2" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="images/playground3.jpg" alt="Modelo Playground Linha 2" style="width: 100%; height: 100%; object-fit: contain; background-color: #f8fafc;">
         </div>
       </div>
     </div>
@@ -952,13 +891,13 @@
     </div>
   </div>
 
-  <!-- PAGE 10: TAPETES PERSONALIZADOS -->
+  <!-- PAGE 9: TAPETES PERSONALIZADOS -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
-        <div class="brand-subtitle">Catálogo Oficial — Página 10</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 9</div>
       </div>
     </div>
 
@@ -967,7 +906,7 @@
     <div class="product-list-2rows">
       <!-- Product 12 -->
       <div class="row-product-card-large">
-        <img src="images/TAPETE VINIL.jpg" alt="Tapete Vinil Personalizado" class="row-product-image-large">
+        <img src="images/tapete_vinil.jpg" alt="Tapete Vinil Personalizado" class="row-product-image-large">
         <div class="row-product-details-large">
           <h3>Tapete Vinil Personalizado (Limpa)</h3>
           <p>Capacho produzido com PVC 100% virgem para reter sujeiras sólidas na entrada. Personalizado com a sua marca computadorizada por vulcanização térmica.</p>
@@ -1026,13 +965,13 @@
     </div>
   </div>
 
-  <!-- PAGE 11: PROTETORES DE ELEVADOR -->
+  <!-- PAGE 10: PROTETORES DE ELEVADOR -->
   <div class="page">
     <div class="page-header">
-      <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo">
+      <img src="images/logo_verde.jpeg" alt="Siciliano Logo">
       <div class="brand-info">
         <div class="brand-title">Siciliano Revestimentos</div>
-        <div class="brand-subtitle">Catálogo Oficial — Página 11</div>
+        <div class="brand-subtitle">Catálogo Oficial — Página 10</div>
       </div>
     </div>
 
@@ -1041,7 +980,7 @@
     <div class="product-list-2rows">
       <!-- Product 14 -->
       <div class="row-product-card-large">
-        <img src="images/protetor de elevador.jpeg" alt="Protetor de Elevador Standard" class="row-product-image-large">
+        <img src="images/protetor_de_elevador.jpeg" alt="Protetor de Elevador Standard" class="row-product-image-large">
         <div class="row-product-details-large">
           <h3>Protetor de Elevador Standard (Mudanças)</h3>
           <p>Desenvolvido para condomínios residenciais. Protege a cabine do elevador contra arranhões, riscos e pequenos impactos durante mudanças e transporte cotidiano.</p>
@@ -1068,7 +1007,7 @@
 
       <!-- Product 15 -->
       <div class="row-product-card-large">
-        <img src="images/protetor de elevador2.jpeg" alt="Protetor de Elevador Reforçado" class="row-product-image-large">
+        <img src="images/protetor_de_elevador2.jpeg" alt="Protetor de Elevador Reforçado" class="row-product-image-large">
         <div class="row-product-details-large">
           <h3>Protetor de Elevador Reforçado (Obras e Cargas)</h3>
           <p>Ideal para elevadores de serviço ou obras. Proteção robusta projetada para absorver grandes impactos de materiais de construção e ferramentas pesadas.</p>
@@ -1100,9 +1039,9 @@
     </div>
   </div>
 
-  <!-- PAGE 12: CLOSING PAGE -->
+  <!-- PAGE 11: CLOSING PAGE -->
   <div class="page closing-page">
-    <img src="images/LOGO VERDE.jpeg" alt="Siciliano Logo" class="cover-logo" style="margin-bottom: 8mm;">
+    <img src="images/logo_verde.jpeg" alt="Siciliano Logo" class="cover-logo" style="margin-bottom: 8mm;">
     
     <div class="closing-card">
       <h2 class="closing-title">Fale Conosco</h2>

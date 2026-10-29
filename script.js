@@ -30,6 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initProductFilters();
   initMobileFilterDropdown();
   initProductSliders();
+
+  // Sincroniza contagem total de revestimentos
+  const catalogCountEl = document.getElementById("catalog-count");
+  if (catalogCountEl) {
+    catalogCountEl.textContent = "15";
+  }
 });
 
 /* ==========================================================================
@@ -78,13 +84,32 @@ function initCustomCursor() {
   const cursor = document.getElementById("custom-cursor");
   if (!cursor) return;
 
-  let mouseX = 0, mouseY = 0;
-  let posX = 0, posY = 0;
+  // Só ativa cursor magnético em desktop com mouse físico de alta precisão
+  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    cursor.style.display = "none";
+    return;
+  }
 
-  // Atualiza coordenadas no mousemove
+  let mouseX = -100, mouseY = -100;
+  let posX = -100, posY = -100;
+  let hasMoved = false;
+
+  // Atualiza coordenadas no mousemove e revela o cursor
   document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    if (!hasMoved) {
+      hasMoved = true;
+      cursor.classList.add("active");
+    }
+  });
+
+  document.addEventListener("mouseleave", () => {
+    cursor.classList.remove("active");
+  });
+
+  document.addEventListener("mouseenter", () => {
+    if (hasMoved) cursor.classList.add("active");
   });
 
   // Efeito de interpolação (lerp) com ticker do GSAP para suavidade impecável
@@ -458,12 +483,32 @@ function initFormSubmit() {
   const form = document.getElementById("whatsapp-form");
   if (!form) return;
 
+  const productSelect = document.getElementById("product");
+
+  // Pré-seleção de produto via URL (ex: orcamento.html?produto=piso-modular)
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const prodParam = urlParams.get("produto");
+    if (prodParam && productSelect) {
+      let cleanParam = prodParam.replace(/^prod-/, "");
+      if (cleanParam.startsWith("piso-modular")) cleanParam = "piso-modular";
+      for (let i = 0; i < productSelect.options.length; i++) {
+        const optVal = productSelect.options[i].value;
+        if (optVal === cleanParam || optVal === prodParam) {
+          productSelect.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  } catch (err) {
+    console.warn("Erro ao ler parâmetros de URL:", err);
+  }
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const nameInput = document.getElementById("name");
     const phoneInput = document.getElementById("phone");
-    const productSelect = document.getElementById("product");
     const areaInput = document.getElementById("area");
     const messageInput = document.getElementById("message");
 
@@ -545,16 +590,18 @@ function initFormSubmit() {
     };
 
     const proceedToWhatsApp = () => {
-      submitBtn.innerHTML = "Redirecionando WhatsApp... 🚀";
+      submitBtn.innerHTML = "Resposta em até 15 min! Redirecionando... 🚀";
       setTimeout(() => {
         // Se o navegador bloquear a nova aba (pop-up), abre na mesma aba
         const novaAba = window.open(whatsappUrl, "_blank");
         if (!novaAba) window.location.href = whatsappUrl;
-        submitBtn.innerHTML = originalText;
-        submitBtn.style.backgroundColor = "";
-        submitBtn.style.color = "";
-        submitBtn.disabled = false;
-        form.reset();
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.style.backgroundColor = "";
+          submitBtn.style.color = "";
+          submitBtn.disabled = false;
+          form.reset();
+        }, 1500);
       }, 500);
     };
 
@@ -690,48 +737,80 @@ function initProductFilters() {
   });
 }
 
-// Carrossel interno dos cards de produtos
+// Carrossel interno dos cards de produtos com setas e pontinhos (dots)
 function initProductSliders() {
   const sliders = document.querySelectorAll(".slider-container");
   
   sliders.forEach(slider => {
-    const images = slider.querySelectorAll(".slider-slides img");
+    let slides = slider.querySelectorAll(".slider-slides .slide-item");
+    if (!slides || slides.length === 0) {
+      slides = slider.querySelectorAll(".slider-slides img.product-img");
+    }
     const prevBtn = slider.querySelector(".prev-btn");
     const nextBtn = slider.querySelector(".next-btn");
+    let dotsContainer = slider.querySelector(".slider-dots");
     
-    if (images.length <= 1) {
+    if (slides.length <= 1) {
       if (prevBtn) prevBtn.style.display = "none";
       if (nextBtn) nextBtn.style.display = "none";
+      if (dotsContainer) dotsContainer.style.display = "none";
       return;
     }
-    
-    images[0].classList.add("active");
+
+    if (!dotsContainer) {
+      dotsContainer = document.createElement("div");
+      dotsContainer.className = "slider-dots";
+      slider.appendChild(dotsContainer);
+    }
+    dotsContainer.innerHTML = "";
+
+    slides.forEach((_, idx) => {
+      const dot = document.createElement("button");
+      dot.className = `slider-dot ${idx === 0 ? "active" : ""}`;
+      dot.setAttribute("type", "button");
+      dot.setAttribute("aria-label", `Ir para a foto ${idx + 1}`);
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goToSlide(idx);
+      });
+      dotsContainer.appendChild(dot);
+    });
     
     let currentIndex = 0;
     
-    const showImage = (index) => {
-      images.forEach((img, i) => {
-        if (i === index) {
-          img.classList.add("active");
+    const goToSlide = (index) => {
+      currentIndex = index;
+      slides.forEach((slide, i) => {
+        if (i === currentIndex) {
+          slide.classList.add("active");
         } else {
-          img.classList.remove("active");
+          slide.classList.remove("active");
         }
+      });
+      const allDots = dotsContainer.querySelectorAll(".slider-dot");
+      allDots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
       });
     };
     
-    prevBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      showImage(currentIndex);
-    });
+    if (prevBtn) {
+      prevBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        goToSlide(currentIndex);
+      });
+    }
     
-    nextBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-    });
+    if (nextBtn) {
+      nextBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % slides.length;
+        goToSlide(currentIndex);
+      });
+    }
   });
 }
 
